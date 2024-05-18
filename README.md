@@ -1,30 +1,18 @@
-# 4th
-#student info
-class Student  
-attr_accessor :name, :gender, :phone_number, :exam_score, :accumulated_score  
-def initialize(name, gender, phone_number, exam_score)  
-@name = name  
-@gender = gender  
-@phone_number = phone_number  
-@exam_score = exam_score  
-@accumulated_score = 0  
-end  
-def accumulated_score  
-@accumulated_score += @exam_score  
-end  
-def display  
-puts "Name: #{@name}, Gender: #{@gender}, Phone Number: #{@phone_number}, Exam Score:  
-#{@exam_score}, Accumulated Score: #{@accumulated_score}"  
-end  
-end  
-# Creating a new student  
-student1 = Student.new("Pradeep ", "Male", "123-456-7890", 80)  
-# Displaying initial details  
-puts "initial details"  
-student1.display  
-puts "\n"  
-# Accumulating score  
-student1.accumulated_score  
-# Displaying updated details  
-puts "after updation"  
-student1.display 
+import cv2
+import numpy
+def nothing(x):
+  pass
+img=numpy.zeros((512, 512, 3),numpy.uint8)
+cv2.namedWindow('image')
+cv2.createTrackbar('R', 'image', 0, 255, nothing)
+cv2.createTrackbar('G', 'image', 0, 255, nothing)
+cv2.createTrackbar('B', 'image', 0, 255, nothing)
+while(True):
+   cv2.imshow('image',img)
+   if cv2.waitKey(1)==27:
+break
+r=cv2.getTrackbarPos('R', 'image')
+g=cv2.getTrackbarPos('G', 'image')
+b=cv2.getTrackbarPos('B', 'image')
+img[:]=[b,g,r]
+cv2.destroyAllWindows()
